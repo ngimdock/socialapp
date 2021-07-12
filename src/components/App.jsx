@@ -39,12 +39,12 @@ function App() {
   ]);
 
   return (
-    <>
+    <section className="App">
       <NavBar />
       <SideBar contactList={userList} />
       <Main publicationList={userList} />
       <Footer />
-    </>
+    </section>
   );
 }
 
