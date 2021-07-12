@@ -1,7 +1,7 @@
 import Avatar from './avatar';
 
 function Contact({contact}) {
-    
+
     const getPseudo = (name) => {
         const randomNumber = Math.floor(Math.random()*100) +1;
         return ` @${name}${randomNumber}`; 
@@ -14,8 +14,8 @@ function Contact({contact}) {
             </div>
 
             <div>
-                <span>{contact.name}</span> <br />
-                <span>{getPseudo(contact.name)}</span>
+                <p className="name">{contact.name}</p>
+                <p className="pseudo">{getPseudo(contact.name)}</p>
             </div>
 
             <button>Suivre</button>

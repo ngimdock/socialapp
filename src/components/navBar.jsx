@@ -14,7 +14,7 @@ function NavBar({authorInfo}){
                     <li className="nav-items">MESSAGES</li>
                     <li className="nav-items">PARAMETRES</li>
                 </ul>
-                <div>
+                <div className="author-block">
                     <Avatar person={authorInfo} />
                     <i className="bi bi-caret-down-fill"></i>
                 </div>
