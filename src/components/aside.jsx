@@ -3,7 +3,7 @@ import Contact from './contact';
 function SideBar({contactList}) {
     return(
         <aside className="asideBar">
-            <div className="suggestio">Suggestions</div>
+            <div className="suggestions">SUGGESTIONS</div>
             {
                 contactList.map(contact => <Contact contact={contact} key={contact.id}/>)
             }
