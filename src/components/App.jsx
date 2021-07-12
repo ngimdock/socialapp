@@ -50,7 +50,7 @@ function App() {
     },
     {
       id: 6,
-      name : "livine",
+      name : "levine",
       img : "levine.jpg",
       text : "je suis ce que je suis et je deviendrais ce que je serais blondelle"
     },

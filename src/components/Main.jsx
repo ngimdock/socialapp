@@ -1,9 +1,25 @@
-
-
-function Main(props) {
+import {SearchBar, FilterPub} from './FilterPublication';
+import Publication from './Publication';
+ 
+function Main ({publicationList}){
     return(
         <main className="main-content">
-            contenu principale
+            <header>
+                <SearchBar />
+                <div>
+                    <span>Filtre</span>
+                    <FilterPub />
+                </div>
+            </header>
+
+            <section className="publication-container">
+                {
+                    publicationList.map(pub => {
+                        return <Publication key={pub.id} pubInfo={pub} />
+                    })
+                }
+
+            </section>
         </main>
     );
 }
