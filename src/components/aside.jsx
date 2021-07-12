@@ -1,8 +1,12 @@
+import Contact from './contact';
 
-function SideBar(props) {
+function SideBar({contactList}) {
     return(
         <aside className="asideBar">
-            SUGGESTIONS
+            <div className="suggestio">Suggestions</div>
+            {
+                contactList.map(contact => <Contact contact={contact} key={contact.id}/>)
+            }
         </aside>
     );
 }

@@ -1,6 +1,8 @@
-import navBar from '../css/navBar.css';
+import Avatar from './avatar';
 
-function NavBar(){
+function NavBar({authorInfo}){
+    console.log("hey-------------------------------------------------------------")
+    console.log(authorInfo);
     return (
         <header className="navBar">
             <div className="logo">
@@ -13,7 +15,8 @@ function NavBar(){
                     <li className="nav-items">PARAMETRES</li>
                 </ul>
                 <div>
-                    <img src="../resources/images/dan.jpg" alt="profil-pic" />
+                    <Avatar person={authorInfo} />
+                    <i className="bi bi-caret-down-fill"></i>
                 </div>
             </nav>
         </header>
