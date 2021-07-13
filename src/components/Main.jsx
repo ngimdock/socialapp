@@ -4,10 +4,12 @@ import Publication from './Publication';
 function Main ({publicationList}){
     return(
         <main className="main-content">
-            <header>
-                <SearchBar />
+            <header className="publication-filter-block">
                 <div>
-                    <span>Filtre</span>
+                    <SearchBar />
+                </div>
+                <div>
+                    <span className="fil">Filtre</span>
                     <FilterPub />
                 </div>
             </header>
