@@ -10,12 +10,12 @@ function Publication({pubInfo}) {
 
     return (
         <article className="publication-item">
-            <div>
+            <aside>
                 <Avatar person={pubInfo} />
-            </div>
+            </aside>
 
-            <div>
-                <header>
+            <section>
+                <header className="pub-head">
                     <p>
                         <span className="name">{pubInfo.name}</span>
                         <span>.</span>
@@ -26,13 +26,13 @@ function Publication({pubInfo}) {
                         <i className="bi bi-caret-down-fill"></i>
                     </p>
                 </header>
-                <div>
+                <main className="pub-content">
                     <p>
                         Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                     </p>
                     <PublicationInfo />
-                </div>
-            </div>
+                </main>
+            </section>
         </article>
     );
 }
