@@ -2,28 +2,37 @@
 import Avatar from './avatar';
 
 function Publication({pubInfo}) {
-    return (
-        <article className="pub-item">
-            <div>
-                <Avatar person={pubInfo} />
-            </div>
 
-            <div>
-                <head>
+    const getPseudo = (name) => {
+        const randomNumber = Math.floor(Math.random()*100) +1;
+        return ` @${name}${randomNumber}`; 
+    }
+
+    return (
+        <article className="publication-item">
+            <aside>
+                <Avatar person={pubInfo} />
+            </aside>
+
+            <section>
+                <header className="pub-head">
                     <p>
-                        <span>{pubInfo.name}</span>
-                        <span>{pubInfo.pseudo}</span>
+                        <span className="name">{pubInfo.name}</span>
+                        <span>.</span>
+                        <span className="pseudo">{getPseudo(pubInfo.name)}</span>
                     </p>
-                    <span>20 juin 2000</span>
-                </head>
-                <div>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis temporibus a
-                        t, ullam neque placeat aliquam commodi ipsa minus cupiditate quis nobis. Id quas ul
-                        lam magni provident. Amet repellendus dolores totam.
-                        </p>
-                </div>
-                <PublicationInfo />
-            </div>
+                    <p>
+                        <span>20 juin 2000</span>
+                        <i className="bi bi-caret-down-fill"></i>
+                    </p>
+                </header>
+                <main className="pub-content">
+                    <p>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    </p>
+                    <PublicationInfo />
+                </main>
+            </section>
         </article>
     );
 }
@@ -31,9 +40,12 @@ function Publication({pubInfo}) {
 
 function PublicationInfo(props) {
     return (
-        <div className="pub-info">
-            les informations ici.......
-        </div>
+        <ul className="publication-info">
+            <li><i className="bi bi-chat-left"></i> <span>23</span> </li>
+            <li><i className="bi bi-bounding-box-circles"></i>  <span>23</span></li>
+            <li><i className="bi bi-suit-heart"></i>  <span>23</span></li>
+            <li><i className="bi bi-reply"></i>  <span>23</span></li>
+        </ul>
     );
 }
 export default Publication;
