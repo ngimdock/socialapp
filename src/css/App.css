@@ -7,22 +7,22 @@
 
 body{
   overflow-y: scroll;
+  font-family: sans-serif;
 }
 
 #root{
   min-height: auto;
-  background: rgb(161, 7, 7);
-  display: grid;
+  background: blue;
   width: 100%;
-  overflow-y: scroll;
-  grid-template-areas: "navBar navBar navBar navBar"
-                        "asideBar main-content main-content main-content"
-                        "footBar footBar footBar footBar";
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(3, auto);
 }
 
 .navBar{
-  grid-area: navBar;
-  background: white;
+  grid-column: 1/-1;
+  grid-column: 1;
+  background: #f6f9fc;
   color : #008000;
   position:fixed;
   width: 100%;
@@ -66,13 +66,20 @@ body{
   margin-left: 10px;
 }
 
-.avatar{
+/*.avatar{
   overflow:hidden;
   -webkit-border-radius:50;
   -moz-border-radius:50px;
   border-radius:50px;
   width: 75px;
   height: 75px;
+}*/
+
+.avatar{
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 .logo{
@@ -82,7 +89,8 @@ body{
 }
 /*-------------------------aside---------------------------*/
 .asideBar{
-  grid-area: asideBar;
+  grid-column: span 2;
+  grid-row: 2;
   margin-top: 80px;
   background: #DADEDF;
   min-height: 900px;
@@ -99,7 +107,6 @@ body{
   font-weight: 700;
   font-size: 22px;
 }
-/*-------------------------aside---------------------------*/
 
 .contact{
   width: 80%;
@@ -143,7 +150,8 @@ body{
 /*-------------------------main-content---------------------------*/
 
 .main-content{
-  grid-area: main-content;
+  grid-column: span 5;
+  grid-row: 2;
   margin-top: 80px;
   background: #DADEDF;
   min-height: 900px;
@@ -226,27 +234,26 @@ body{
 .publication-item{
   background: white;
   width: 95%;
-  height: 200px;
+  min-height: 220px;
+  height: auto;
   margin: 20px 0;
   box-shadow: 0px 0px 15px rgba(49, 49, 49, 0.25);
   border-radius: 10px;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
 }
 
 .publication-item aside{
-  padding: 12px 0 0 12px;
+  padding: 20px 10px 0 15px;
 }
 .publication-item section{
   width: 90%;
   height: 100%;
-  margin: auto;
-  position: relative;
-  left: 17px;
+  padding: 20px 10px 0 10px;
 }
 
 .pub-head{
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -269,7 +276,7 @@ body{
   display: flex;
   font-display: row;
   justify-content: flex-start;
-
+  padding-top: 12px;
 }
 
 .publication-info li{
@@ -283,20 +290,75 @@ body{
 /*-------------------------footer---------------------------*/
 
 .footBar{
-  grid-area: footBar;
+  grid-column: 1/-1;
+  grid-row: 3;
   background: rgb(63, 62, 62);
   width: 100%;
-  height: 85px;
+  min-height: 85px;
+  height: auto;
   color: white;
   display: flex;
-justify-content: center;
-align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 
 /*----------------------------------------------------MEDIA QUERY-------------------------------------------*/
 
-@media screen and (max-width : 664px) {
+@media screen and (max-width : 1132px){
+  .asideBar .avatar{
+    width: 52px;
+    height: 52px;
+  }
+
+  .contact *{
+    font-size: 14px;
+  }
+
+  .contact button{
+    font-size: 14px;
+    padding: 2px;
+  }
+
+  .suggestions{font-size: 17px;}
+}
+
+@media screen and (max-width : 752px){
+  #root{
+    grid-template-rows: repeat(4, auto);
+  }
+
+  .asideBar{
+    grid-column: 1/-1;
+    grid-row: 3;
+    margin-top: 0;
+  }
+
+  .main-content{
+    grid-column: 1/-1;
+    grid-row: 2;
+  }
+
+  .footBar{grid-row: 4;}
+  .publication-container{
+    padding: 0 15px;
+  }
+
+  .publication-item section {
+    padding: 15px 25px 0 0;
+  }
+
+  .publication-info li{
+    font-size: 15px;
+    margin: 0 10px 8px 10px;
+  }
+
+  .publication-item aside {
+    padding: 8px 7px 0 5px;
+  }
+}
+
+/*@media screen and (max-width : 664px) {
   .navBar{
     font-size: 15px;
   }
@@ -314,7 +376,7 @@ align-items: center;
     margin-left: 20px;
     font-size: 19px;
   }
-}
+}*/
 
 /* @keyframes App-logo-spin {
   from {

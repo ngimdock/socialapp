@@ -14,10 +14,17 @@ function Contact({contact}) {
             </div>
 
             <div>
-                <p className="name">{contact.name}</p>
-                <p className="pseudo">{getPseudo(contact.name)}</p>
+                <p className="name">
+                    {
+                        contact.name.length <= 6 ? contact.name : contact.name.substring(0, 5) + ".."
+                    }
+                </p>
+                <p className="pseudo">
+                    {
+                        getPseudo(contact.name) <= 5 ? getPseudo(contact.name) : getPseudo(contact.name).substring(0, 6) + ".."
+                    }
+                </p>
             </div>
-
             <button>Suivre</button>
         </div>
     );
