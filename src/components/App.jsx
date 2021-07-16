@@ -58,7 +58,7 @@ function App() {
       id: 7,
       name : "corine",
       img : "corine.jpg",
-      text : "je suis ce que je suis et je deviendrais ce que je serais blondelle"
+      text : " que je suis et je deviendrais ce que je serais blondelle deviendrais ce que je serais blondelle"
     }
   ]);
 

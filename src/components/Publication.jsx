@@ -28,7 +28,10 @@ function Publication({pubInfo}) {
                 </header>
                 <main className="pub-content">
                     <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                        Attention ! Bien que String.prototype.substr(…) ne soit pas strictement obsolète (au sens où elle 
+                            n'a pas été retirée des standards), elle est définie au sein de l'Annexe B du standard ECMA-262
+                        qui définit l'ensemble des fonctionnalités historiques qui doivent être évitées autant que possible. 
+                        On utilisera la méthode String.prototype.substring() à la place.
                     </p>
                     <PublicationInfo />
                 </main>
