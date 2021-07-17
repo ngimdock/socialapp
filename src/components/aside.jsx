@@ -1,12 +1,20 @@
 import Contact from './contact';
 
-function SideBar({contactList}) {
+function SideBar({contactList, onDeleteContact}) {
     return(
         <aside className="asideBar">
             <div className="suggestions">SUGGESTIONS</div>
-            {
-                contactList.map(contact => <Contact contact={contact} key={contact.id}/>)
-            }
+            <div className="contact-container">
+                {
+                    contactList.map(contact => 
+                        <Contact 
+                            contact={contact} 
+                            key={contact.id} 
+                            onDeleteContact={onDeleteContact}
+                        />
+                    )
+                }
+            </div>
         </aside>
     );
 }

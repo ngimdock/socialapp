@@ -1,6 +1,6 @@
 import Avatar from './avatar';
 
-function Contact({contact}) {
+function Contact({contact, onDeleteContact}) {
 
     const getPseudo = (name) => {
         const randomNumber = Math.floor(Math.random()*100) +1;
@@ -25,7 +25,7 @@ function Contact({contact}) {
                     }
                 </p>
             </div>
-            <button>Suivre</button>
+            <button onClick={() => onDeleteContact(contact.id)}>Suivre</button>
         </div>
     );
 }

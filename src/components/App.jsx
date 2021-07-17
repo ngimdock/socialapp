@@ -1,4 +1,4 @@
-// import logo from './logo.svg';
+
 import React, {useState} from 'react';
 
 import NavBar from './navBar';
@@ -17,56 +17,57 @@ function App() {
     text : "l'auteur du site à posté ce méssagge"
   });
 
-  const [userList, setUserList] = useState([
+  const [userContactList, setUserContactsPubList] = useState([
     {
       id : 1,
       name : "nina",
-      img : "nina.jpg",
-      text : "je suis ce que je suis et je deviendrais ce que je serais dan"
+      img : "nina.jpg"
     },
     {
       id : 2,
       name : "dilane",
-      img : "dilane.jpg",
-      text : "je suis ce que je suis et je deviendrais ce que je serais dilane"
+      img : "dilane.jpg"
     },
     {
       id : 3,
       name : "stanela",
-      img : "stanela.jpg",
-      text : "je suis ce que je suis et je deviendrais ce que je serais stanela"
+      img : "stanela.jpg"
     },
     {
       id: 4,
       name : "blondelle",
-      img : "blondelle.jpg",
-      text : "je suis ce que je suis et je deviendrais ce que je serais blondelle"
+      img : "blondelle.jpg"
     },
     {
       id: 5,
       name : "donald",
-      img : "donald.jpg",
-      text : "je suis ce que je suis et je deviendrais ce que je serais blondelle"
+      img : "donald.jpg"
     },
     {
       id: 6,
       name : "levine",
-      img : "levine.jpg",
-      text : "je suis ce que je suis et je deviendrais ce que je serais blondelle"
+      img : "levine.jpg"
     },
     {
       id: 7,
       name : "corine",
-      img : "corine.jpg",
-      text : " que je suis et je deviendrais ce que je serais blondelle deviendrais ce que je serais blondelle"
+      img : "corine.jpg"
     }
   ]);
+
+  const handleDeleteContact = (id) => {
+    console.clear();
+    console.log(id);
+    console.log("je suis entré");
+    const newContactList = userContactList.filter(contact => contact.id !== id);
+    setUserContactsPubList(newContactList);
+  }
 
   return (
     <>
       <NavBar authorInfo={authorInfo} />
-      <SideBar contactList={userList} />
-      <Main publicationList={userList} />
+      <SideBar contactList={userContactList} onDeleteContact={handleDeleteContact} />
+      <Main />
       <Footer />
     </>
   );

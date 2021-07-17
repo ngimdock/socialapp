@@ -1,8 +1,7 @@
 import Avatar from './avatar';
 
 function NavBar({authorInfo}){
-    console.log("hey-------------------------------------------------------------")
-    console.log(authorInfo);
+    
     return (
         <header className="navBar">
             <div className="logo">

@@ -1,12 +1,21 @@
-
+import {useState} from 'react';
 import Avatar from './avatar';
 
 function Publication({pubInfo}) {
 
+    const [numberOfChat, setNumberOfChat] = useState(0);
     const getPseudo = (name) => {
         const randomNumber = Math.floor(Math.random()*100) +1;
         return ` @${name}${randomNumber}`; 
     }
+
+function formatDate(date) {
+    const day = date.getDate();
+    const month = date.getMonth();
+    const year = date.getFullYear();
+
+    return `${day} / ${month+1} / ${year}`
+}
 
     return (
         <article className="publication-item">
@@ -22,16 +31,16 @@ function Publication({pubInfo}) {
                         <span className="pseudo">{getPseudo(pubInfo.name)}</span>
                     </p>
                     <p>
-                        <span>20 juin 2000</span>
-                        <i className="bi bi-caret-down-fill"></i>
+                        <span>
+                            { formatDate(pubInfo.date) }
+                            <i className="bi bi-caret-down-fill"></i>
+                        </span>
+                        
                     </p>
                 </header>
                 <main className="pub-content">
                     <p>
-                        Attention ! Bien que String.prototype.substr(…) ne soit pas strictement obsolète (au sens où elle 
-                            n'a pas été retirée des standards), elle est définie au sein de l'Annexe B du standard ECMA-262
-                        qui définit l'ensemble des fonctionnalités historiques qui doivent être évitées autant que possible. 
-                        On utilisera la méthode String.prototype.substring() à la place.
+                        {pubInfo.text}
                     </p>
                     <PublicationInfo />
                 </main>

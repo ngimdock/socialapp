@@ -8,18 +8,95 @@ class Main extends React.Component{
         super(props);
 
         this.state = {
-            publicationIfo : {
-                comment : 23,
-                like: 57,
-                describe : 20,
-                share : 11
-            }
+
+            textChange : "publier votre message ici...",
+
+            publicationList : [
+                {
+                  id : 1,
+                  name : "nina",
+                  img : "nina.jpg",
+                  text : "je suis ce que je suis et je deviendrais suis ce que je suis et je deviendrais ce que je serais dane suis ce que je suis et je deviendrais ce que je serais dane suis ce que je suis et je deviendrais ce que je serais dane suis ce que je suis et je deviendrais ce que je serais dane suis ce que je suis et je deviendrais ce que je serais dane suis ce que je suis et je deviendrais ce que je serais dane suis ce que je suis et je deviendrais ce que je serais dan dan",
+                  date : new Date("december 21 2010")
+                },
+                {
+                  id : 2,
+                  name : "dilane",
+                  img : "dilane.jpg",
+                  text : "je suis ce que je suis et je deviendrais ce que je serais dilane",
+                  date : new Date("october 18 2018")
+                },
+                {
+                  id : 3,
+                  name : "stanela",
+                  img : "stanela.jpg",
+                  text : "je suis ce que je suis et je deviendrais ce que je serais stanela",
+                  date : new Date("jun 09 2000")
+                },
+                {
+                  id: 4,
+                  name : "blondelle",
+                  img : "blondelle.jpg",
+                  text : "je suis ce que je suis et je deviendrais ce que je serais blondelle",
+                  date : new Date("march 21 2010")
+                },
+                {
+                  id: 5,
+                  name : "donald",
+                  img : "donald.jpg",
+                  text : "je suis ce que je suis et je deviendrais ce que je serais blondelle",
+                  date : new Date("febuary 28 2021")
+                },
+                {
+                  id: 6,
+                  name : "levine",
+                  img : "levine.jpg",
+                  text : "je suis ce que je suis et je deviendrais ce que je serais blondelle",
+                  date : new Date("august 01 2005")
+                },
+                {
+                  id: 7,
+                  name : "corine",
+                  img : "corine.jpg",
+                  text : " que je suis et je deviendrais ce que je serais blondelle deviendrais ce que je serais blondelle",
+                  date : new Date("april 17 2019")
+                }
+            ]
         };
+    }
+
+    handleChange = (event) => {
+        this.setState({
+            textChange : event.target.value
+        })
+    };
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+
+        if(this.state.textChange === "publier votre message ici..." || this.state.textChange==="")
+            alert("Entrez le contenu de votre publication")
+        else{
+            const publicationList = [...this.state.publicationList];
+            const newPub = {
+                                id : new Date().getTime(), 
+                                name: "ngimdock",
+                                img: "dan.jpg",
+                                text: this.state.textChange,
+                                date : new Date()
+                            };
+
+            publicationList.unshift(newPub);
+
+            this.setState({publicationList, textChange:"un autre message?"});
+        }
+
     }
 
     render(){
 
-        const publicationList = this.props.publicationList;
+        const publicationList = this.state.publicationList;
+        const textChange = this.state.textChange;
 
         return(
             <main className="main-content">
@@ -34,12 +111,17 @@ class Main extends React.Component{
                 </header>
     
                 <section className="publication-container">
+                    <form className="current-pub" onSubmit={this.handleSubmit}>
+                        <label htmlFor="text-to-pub">Avez vous un mot a dire?</label>
+                        <textarea name="text-to-pub" value={textChange} onChange = {this.handleChange} ></textarea>
+                        <input type="submit" value="publier" />
+                    </form>
+
                     {
                         publicationList.map(pub => {
                             return <Publication key={pub.id} pubInfo={pub} />
                         })
                     }
-    
                 </section>
             </main>
         );
