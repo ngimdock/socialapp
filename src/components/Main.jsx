@@ -16,7 +16,7 @@ class Main extends React.Component{
                   id : 1,
                   name : "nina",
                   img : "nina.jpg",
-                  text : "je suis ce que je suis et je deviendrais suis ce que je suis et je deviendrais ce que je serais dane suis ce que je suis et je deviendrais ce que je serais dane suis ce que je suis et je deviendrais ce que je serais dane suis ce que je suis et je deviendrais ce que je serais dane suis ce que je suis et je deviendrais ce que je serais dane suis ce que je suis et je deviendrais ce que je serais dane suis ce que je suis et je deviendrais ce que je serais dan dan",
+                  text : "je je ss ce que je suis es dane suis ce que je suis ete je suis et je deviendrais ce que je serais dan dan",
                   date : new Date("december 21 2010")
                 },
                 {
