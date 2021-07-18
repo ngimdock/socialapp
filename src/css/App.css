@@ -46,6 +46,7 @@ body{
   flex-direction: row;
   margin: 20px;
   justify-content: flex-start;
+  float: right;
 }
 .navigation ul li{
   list-style: none;
@@ -86,6 +87,36 @@ body{
   font-size: 23px;
   font-weight: 700;
 }
+
+.active{
+  padding-bottom: 7px;
+  border-bottom: 3px solid #529330;
+}
+
+.nav-item{
+  padding: 7px 12px;
+  border-radius: 3px;
+}
+
+.nav-item:hover{
+  background: #90cf6e;
+  transform: .5s;
+}
+
+.checkBtn{
+  font-size: 35px;
+  color: #529330;
+  float: right;
+  line-height: 80px;
+  cursor: pointer;
+  display: none;
+}
+
+#check{
+  display: none;
+
+}
+
 /*-------------------------aside---------------------------*/
 .asideBar{
   grid-column: span 2;
@@ -258,7 +289,7 @@ input[value="publier"]{
   height: 35px;
   padding: 5px;
   margin-right: 40px;
-  background: green;
+  background: #529330;
   color: white;
   border-radius: 5px;
   border-width: 0;
@@ -376,6 +407,43 @@ input[value="publier"]{
     grid-template-rows: repeat(4, auto);
   }
 
+.avatar{
+    width: 60px;
+    height: 60px;
+  }
+
+  .checkBtn{
+    display: block;
+    padding-left: 20px;
+  }
+
+  .navigation{
+    margin-right: 12px;
+  }
+
+  .logo{
+    margin-left: 15px;
+  }
+
+  .navigation ul{
+    position: fixed;
+    top: 65px;
+    left: 100%;
+    width: 100%;
+    height: 100vh;
+    background: #529330;
+    color: white;
+    margin-left: 0;
+    flex-direction: column;
+    text-align: center;
+    transition: all .5s;
+  }
+
+  .navigation ul li{
+    margin: 20px 0;
+    font-size: 20px;
+  }
+
   .asideBar{
     grid-column: 1/-1;
     grid-row: 3;
@@ -403,5 +471,18 @@ input[value="publier"]{
 
   .publication-item aside {
     padding: 8px 7px 0 5px;
+  }
+
+  .current-pub label{
+    display: none;
+  }
+
+
+  textarea[name="text-to-pub"]{
+    width: 70%;
+  }
+
+  input[value="publier"] {
+    margin-right: 0;
   }
 }
