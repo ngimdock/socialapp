@@ -1,4 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux'
+
+import { apiCallPosts } from '../redux/post/postAction'
+
 import {SearchBar, FilterPub} from './FilterPublication';
 import Publication from './Publication';
  
@@ -65,6 +69,13 @@ class Main extends React.Component{
         };
     }
 
+    // fetch api when component is mount
+    componentDidMount(){
+        console.log(this.props)
+        this.props.loadAllPost()
+    }
+
+
     handleChange = (event) => {
         this.setState({
             textChange : event.target.value
@@ -118,7 +129,7 @@ class Main extends React.Component{
                     </form>
 
                     {
-                        publicationList.map(pub => {
+                        this.props.postState.posts.map(pub => {
                             return <Publication key={pub.id} pubInfo={pub} />
                         })
                     }
@@ -128,4 +139,16 @@ class Main extends React.Component{
     }
 }
 
-export default Main;
+const mapStateToProps = (state) => {
+    return {
+        postState: state.posts
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        loadAllPost: () => dispatch(apiCallPosts())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

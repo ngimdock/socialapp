@@ -5,7 +5,7 @@ import thunk from  'redux-thunk'
 import postReducer from './post/postReducer'
 
 const rootReducer = combineReducers({
-    post : postReducer
+    posts : postReducer
 })
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
