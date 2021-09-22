@@ -8,18 +8,26 @@ function SearchBar(){
             value={searchValue} 
             onChange={(event) => setSearchValue(event.target.value)}
             className="search"
-            placeholder="Faire une recherche"
+            placeholder="chercher un nom.."
         />
     );
 }
 
 
 function FilterPub() {
+
+    const [filterValue, setFilterValue] = useState("pertinance");
+    console.log(filterValue);
+    const handleChangeFilter = (event) => {
+        setFilterValue(event.target.value)
+    };
+    console.log(filterValue);
+
     return (
-        <select className="filter" id="">
-            <option value="">popularité</option>
-            <option value="">Date de publication</option>
-            <option value="">nombre de partage</option>
+        <select className="filter" value={filterValue} onChange={handleChangeFilter}>
+            <option value="pertinance">pertinance</option>
+            <option value="datePublication">Date de publication</option>
+            <option value="popularite">popularité</option>
         </select>
     );
 }
