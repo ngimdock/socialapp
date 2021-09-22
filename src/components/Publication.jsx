@@ -3,11 +3,13 @@ import Avatar from './avatar';
 
 function Publication({pubInfo}) {
 
+    // state variable
     const [numberOfChat, setNumberOfChat] = useState(0);
     const [numberOfTweet, setNumberOfTweet] = useState(0);
     const [numberOfLike, setNumberOfLike] = useState(0);
     const [numberOfShare, setNumberOfShare] = useState(0);
 
+    // handler
     const handleSetNumberOfChat = () => {
         setNumberOfChat(numberOfChat+1);
     };
@@ -20,6 +22,7 @@ function Publication({pubInfo}) {
         setNumberOfLike(numberOfLike+1);
     };  
 
+    // functions 
     const getPseudo = (name) => {
         const randomNumber = Math.floor(Math.random()*100) +1;
         return ` @${name}${randomNumber}`; 

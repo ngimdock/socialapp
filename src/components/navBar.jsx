@@ -6,12 +6,10 @@ function NavBar({authorInfo}){
     const [radioButonValue, setRadioButonValue] = useState(false);
 
     const handleChangeRadio = () => {
-        console.clear();
-
-        console.log(radioButonValue);
         setRadioButonValue(!radioButonValue);
-/*        setTimeout(function(){console.log(radioButonValue)}, 2000);
-*/    };
+   };
+
+
     
     return (
         <header className="navBar">
@@ -29,9 +27,9 @@ function NavBar({authorInfo}){
                     <i className="bi bi-caret-down-fill"></i>
                 </div>
                 
-                <input type="checkbox" id="check"  checked={radioButonValue} />
+                <input type="checkbox" id="check"  defaultChecked={radioButonValue} />
                 <label htmlFor="check" className="checkBtn">
-                    <i className="bi bi-justify" onClick={handleChangeRadio}></i>
+                    <i className={radioButonValue? "bi bi-x-circle" : "bi bi-justify"}   onClick={handleChangeRadio}></i>
                 </label>
             </nav>
         </header>

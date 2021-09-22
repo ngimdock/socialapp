@@ -1,4 +1,5 @@
 import Avatar from './avatar';
+import {Button} from 'react-bootstrap';
 
 function Contact({contact, onDeleteContact}) {
 
@@ -25,7 +26,7 @@ function Contact({contact, onDeleteContact}) {
                     }
                 </p>
             </div>
-            <button onClick={() => onDeleteContact(contact.id)}>Suivre</button>
+            <Button onClick={() => onDeleteContact(contact.id)}>Suivre</Button>
         </div>
     );
 }

@@ -8,6 +8,8 @@ import Footer from './footer';
 
 import '../css/App.css';
 import '../resources/icons-1.5.0/font/bootstrap-icons.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
 
