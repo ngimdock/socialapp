@@ -1,4 +1,3 @@
-import Avatar from './avatar';
 import {Button} from 'react-bootstrap';
 
 function Contact({contact, onDeleteContact}) {
@@ -11,7 +10,11 @@ function Contact({contact, onDeleteContact}) {
     return (
         <div className="contact">
             <div>
-                <Avatar person={contact} />
+                <img 
+                    src={require(`../resources/images/${contact.img}`).default} 
+                    alt="zemfack" 
+                    className="avatar" 
+                    width="100px" />
             </div>
 
             <div>

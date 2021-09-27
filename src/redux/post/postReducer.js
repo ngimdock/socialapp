@@ -35,13 +35,13 @@ const postReducer = (state = initialState, action) => {
         case ADD_POST:
             return {
                 ...state,
-                post: [action.post, ...state.post]
+                posts: [action.post, ...state.posts]
             }
         case DELETE_POST:
-            const newPost = state.post.filter(post => post.id !== action.id)
+            const newPost = state.posts.filter(post => post.id !== action.id)
             return {
                 ...state,
-                post: newPost
+                posts: newPost
             }
         default:
             return state

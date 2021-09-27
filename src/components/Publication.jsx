@@ -1,8 +1,7 @@
 import {useState} from 'react';
-import Avatar from './avatar';
 
-function Publication({pubInfo}) {
-
+function Publication({ pubInfo }) {
+    
     // state variable
     const [numberOfChat, setNumberOfChat] = useState(0);
     const [numberOfTweet, setNumberOfTweet] = useState(0);
@@ -23,35 +22,46 @@ function Publication({pubInfo}) {
     };  
 
     // functions 
+    const getName = (str) => {
+        return str
+            .split("")
+            .slice(0, 6)
+            .join("")
+    }
+
     const getPseudo = (name) => {
         const randomNumber = Math.floor(Math.random()*100) +1;
         return ` @${name}${randomNumber}`; 
     }
 
-    function formatDate(date) {
-        const day = date.getDate();
-        const month = date.getMonth();
-        const year = date.getFullYear();
+    // function formatDate(date) {
+    //     const day = date.getDate();
+    //     const month = date.getMonth();
+    //     const year = date.getFullYear();
 
-        return `${day} / ${month+1} / ${year}`
-    }
+    //     return `${day} / ${month+1} / ${year}`
+    // }
 
     return (
         <article className="publication-item">
             <aside>
-                <Avatar person={pubInfo} />
+                <img 
+                    src={pubInfo.url} 
+                    alt={pubInfo.title} 
+                    className="avatar" 
+                    width="100px" />
             </aside>
 
             <section>
                 <header className="pub-head">
                     <p>
-                        <span className="name">{pubInfo.name}</span>
+                        <span className="name">{getName(pubInfo.title)}</span>
                         <span>.</span>
-                        <span className="pseudo">{getPseudo(pubInfo.name)}</span>
+                        <p className="pseudo">{getPseudo(getName(pubInfo.title))}</p>
                     </p>
                     <p>
                         <span>
-                            { formatDate(pubInfo.date) }
+{/*                            { formatDate(pubInfo.date) }*/}
                             <i className="bi bi-caret-down-fill"></i>
                         </span>
                         
@@ -59,7 +69,7 @@ function Publication({pubInfo}) {
                 </header>
                 <main className="pub-content">
                     <p>
-                        {pubInfo.text}
+                        {pubInfo.title.repeat(5)}
                     </p>
                     <PublicationInfo
                         numberOfChat={numberOfChat}

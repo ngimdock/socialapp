@@ -17,11 +17,9 @@ function SearchBar(){
 function FilterPub() {
 
     const [filterValue, setFilterValue] = useState("pertinance");
-    console.log(filterValue);
     const handleChangeFilter = (event) => {
         setFilterValue(event.target.value)
     };
-    console.log(filterValue);
 
     return (
         <select className="filter" value={filterValue} onChange={handleChangeFilter}>

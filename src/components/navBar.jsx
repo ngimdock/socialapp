@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Avatar from './avatar';
+const ProfilImg = require("../resources/images/dan.jpg").default
 
 function NavBar({authorInfo}){
 
@@ -23,7 +23,7 @@ function NavBar({authorInfo}){
                     <li className="nav-items">PARAMETRES</li>
                 </ul>
                 <div className="author-block">
-                    <Avatar person={authorInfo} className="avatar-author"/>
+                    <img src={ProfilImg} alt="zemfack" className="avatar" width="100px" />
                     <i className="bi bi-caret-down-fill"></i>
                 </div>
                 

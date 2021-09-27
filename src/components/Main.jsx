@@ -1,10 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux'
 
-import { apiCallPosts } from '../redux/post/postAction'
+import { apiCallPosts, addPost } from '../redux/post/postAction'
 
 import {SearchBar, FilterPub} from './FilterPublication';
 import Publication from './Publication';
+import {LoadingPost, LoadingPostError} from './LoadingPost'
  
 class Main extends React.Component{
 
@@ -75,6 +76,11 @@ class Main extends React.Component{
         this.props.loadAllPost()
     }
 
+    componentDidUpdate(prevProps) {
+      if (this.props.postState.isLoadingPost !== prevProps.postState.isLoadingPost) {
+        console.log(this.props.postState)
+      }
+    }
 
     handleChange = (event) => {
         this.setState({
@@ -106,8 +112,23 @@ class Main extends React.Component{
 
     render(){
 
-        const publicationList = this.state.publicationList;
-        const textChange = this.state.textChange;
+        const {publicationList, textChange} = this.state
+        const { postState, loadAllPost, addOnePost } = this.props
+        console.log(this.props)
+
+        let displayPosts = null
+
+        if(postState.isLoadingPost){
+            displayPosts = <LoadingPost />
+        }else{
+            displayPosts = postState.errorLoadingPost ? (
+                <LoadingPostError errorMessage={postState.errorLoadingPost} />
+            ) : (
+                displayPosts = postState.posts.map(pub => <Publication key={pub.id} pubInfo={pub} />)
+            )
+        }
+
+       
 
         return(
             <main className="main-content">
@@ -125,13 +146,10 @@ class Main extends React.Component{
                     <form className="current-pub" onSubmit={this.handleSubmit}>
                         <label htmlFor="text-to-pub">Avez vous un mot a dire?</label>
                         <textarea name="text-to-pub" value={textChange} onChange = {this.handleChange} ></textarea>
-                        <input type="submit" value="publier" />
+                        <input type="submit" value="publier" onClick= { () => addOnePost(textChange) } />
                     </form>
-
                     {
-                        this.props.postState.posts.map(pub => {
-                            return <Publication key={pub.id} pubInfo={pub} />
-                        })
+                        displayPosts
                     }
                 </section>
             </main>
@@ -141,13 +159,15 @@ class Main extends React.Component{
 
 const mapStateToProps = (state) => {
     return {
-        postState: state.posts
+        postState: state.posts,
+        hello: "2"
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        loadAllPost: () => dispatch(apiCallPosts())
+        loadAllPost: () => dispatch(apiCallPosts()),
+        addOnePost: (post) => dispatch(addPost(post))
     }
 }
 

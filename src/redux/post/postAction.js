@@ -58,7 +58,9 @@ const apiCallPosts = () => {
                 throw new Error("ERREUR HTTP ! status : " + response.status)
             }
             const posts = await response.json()
-            dispatch(loadPostSuccess(posts))  // display post when api success fetch
+            const randomNum = Math.floor(Math.random() * 480)
+            console.log(randomNum)
+            dispatch(loadPostSuccess(posts.slice(randomNum, randomNum+10)))  // display post when api success fetch
         }catch(error){
             dispatch(loadPostError(error.message)) // display error when API failed fetch
         }

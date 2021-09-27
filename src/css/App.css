@@ -30,6 +30,7 @@ body{
   justify-content: space-between;
   align-items: center;
   border-bottom: 2px solid rgb(128, 128, 128, 0.5);
+  z-index: 10;
 }
 
 /*-------------------------header---------------------------*/
@@ -302,8 +303,8 @@ input[value="publier"]{
   background: white;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  min-height: 100%;
 }
 
 .publication-item{
@@ -316,6 +317,7 @@ input[value="publier"]{
   border-radius: 10px;
   display: flex;
   flex-direction: row;
+  position: relative;
 }
 
 .publication-item aside{
@@ -486,4 +488,19 @@ input[value="publier"]{
   input[value="publier"] {
     margin-right: 0;
   }
+}
+
+.loadPostSpinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loadPostSpinner{
+  color: rgba(0, 128, 0, 0.9);
+}
+
+.errorMessage{
+  color: red;
+  text-align: center !important;
 }
