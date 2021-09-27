@@ -59,8 +59,11 @@ const apiCallPosts = () => {
             }
             const posts = await response.json()
             const randomNum = Math.floor(Math.random() * 480)
-            console.log(randomNum)
-            dispatch(loadPostSuccess(posts.slice(randomNum, randomNum+10)))  // display post when api success fetch
+            const somePosts = posts
+                                .slice(randomNum, randomNum+10)
+                                .map(({albumId, thumbnailUrl, ...otherProps}) => otherProps)
+
+            dispatch(loadPostSuccess(somePosts))  // display post when api success fetch
         }catch(error){
             dispatch(loadPostError(error.message)) // display error when API failed fetch
         }

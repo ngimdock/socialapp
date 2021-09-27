@@ -94,18 +94,14 @@ class Main extends React.Component{
         if(this.state.textChange === "publier votre message ici..." || this.state.textChange==="")
             alert("Entrez le contenu de votre publication")
         else{
-            const publicationList = [...this.state.publicationList];
-            const newPub = {
+
+            const newPost = {
                                 id : new Date().getTime(), 
-                                name: "ngimdock",
-                                img: "dan.jpg",
-                                text: this.state.textChange,
-                                date : new Date()
+                                title: this.state.textChange,
+                                url: "https://i.ibb.co/qs0mg9f/IMG-20201128-155513-737-1614485976414.jpg" 
                             };
 
-            publicationList.unshift(newPub);
-
-            this.setState({publicationList, textChange:"un autre message?"});
+            this.props.addOnePost(newPost)
         }
 
     }
@@ -114,7 +110,6 @@ class Main extends React.Component{
 
         const {publicationList, textChange} = this.state
         const { postState, loadAllPost, addOnePost } = this.props
-        console.log(this.props)
 
         let displayPosts = null
 
@@ -146,7 +141,7 @@ class Main extends React.Component{
                     <form className="current-pub" onSubmit={this.handleSubmit}>
                         <label htmlFor="text-to-pub">Avez vous un mot a dire?</label>
                         <textarea name="text-to-pub" value={textChange} onChange = {this.handleChange} ></textarea>
-                        <input type="submit" value="publier" onClick= { () => addOnePost(textChange) } />
+                        <input type="submit" value="publier" />
                     </form>
                     {
                         displayPosts
