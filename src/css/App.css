@@ -334,7 +334,6 @@ input[value="publier"]{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 5px 0;
   height: 17%;
 }
 

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 const ProfilImg = require("../resources/images/dan.jpg").default
 
 function NavBar({authorInfo}){
@@ -7,8 +7,25 @@ function NavBar({authorInfo}){
 
     const handleChangeRadio = () => {
         setRadioButonValue(!radioButonValue);
-   };
+    };
 
+
+    useEffect(() => {
+        const navItems = document.querySelectorAll(".nav-items")
+
+        const listener = () => {}
+
+        navItems.forEach(function(item){
+            item.addEventListener("click", function() {
+                navItems.forEach(li => {
+                    li.classList.remove("active")
+                })
+                
+                this.classList.add("active")
+            })
+        })
+
+    })
 
     
     return (
