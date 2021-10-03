@@ -1,6 +1,29 @@
 import { connect } from 'react-redux'
 import { Modal, Button } from 'react-bootstrap'
 import { deletePost } from '../../redux/post/postAction'
+import { hideAvailableModal } from '../../redux/modal/modalAction'
+
+let NotAvailableModal = ({ modalState, hideAvailableModal }) => {
+	return (
+		<Modal
+        show={modalState.show}
+        onHide={()=> hideAvailableModal()}
+        keyboard={false}
+        centered
+        animation={false}
+      >
+	        <Modal.Header closeButton>
+	          <Modal.Title>Desolé🤧</Modal.Title>
+	        </Modal.Header>
+	        <Modal.Body>
+	          Cette fonctionalité n'a pas encore été implementé
+	        </Modal.Body>
+	        <Modal.Footer>
+	          <Button variant="primary" onClick={ () => hideAvailableModal() }>ok</Button>
+	        </Modal.Footer>
+      </Modal>
+    )
+}
 
 let ConfirmDeletePostModal = (props) => {
 	const { id, name, deleteOnePost, show, setShow, onHide } = props
@@ -33,15 +56,24 @@ let ConfirmDeletePostModal = (props) => {
 	)
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapStateToProps = (state) => {
 	return {
-		deleteOnePost: (id) => dispatch(deletePost(id))
+		modalState: state.modal
 	}
 }
 
+const mapDispatchToProps = (dispatch) => {
+	return {
+		deleteOnePost: (id) => dispatch(deletePost(id)),
+		hideAvailableModal: () => dispatch(hideAvailableModal())
+	}
+}
+
+NotAvailableModal = connect(mapStateToProps, mapDispatchToProps)(NotAvailableModal)
 ConfirmDeletePostModal = connect(null, mapDispatchToProps)(ConfirmDeletePostModal)
 
 
 export {
-	ConfirmDeletePostModal
+	ConfirmDeletePostModal,
+	NotAvailableModal
 }

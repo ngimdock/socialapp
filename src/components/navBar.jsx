@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import { ProfileDropdown } from './tools/Dropdowns'
-
 const ProfilImg = require("../resources/images/dan.jpg").default
 
 function NavBar({authorInfo}){
@@ -14,7 +13,7 @@ function NavBar({authorInfo}){
 
     useEffect(() => {
         const navItems = document.querySelectorAll(".nav-items")
-        
+
         navItems.forEach(function(item){
             item.addEventListener("click", function() {
                 navItems.forEach(li => {
@@ -52,6 +51,7 @@ function NavBar({authorInfo}){
         </header>
     );
 }
+
 
 
 export default NavBar;

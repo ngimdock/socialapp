@@ -13,8 +13,7 @@ class Main extends React.Component{
         super(props);
 
         this.state = {
-
-            textChange : "publier votre message ici...",
+            textChange : "publier votre message ici..."
         };
     }
 

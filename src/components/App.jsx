@@ -5,6 +5,7 @@ import NavBar from './navBar';
 import SideBar  from './aside';
 import Main from './Main';
 import Footer from './footer';
+import { NotAvailableModal } from './tools/customModals'
 
 import '../css/App.css';
 import '../resources/icons-1.5.0/font/bootstrap-icons.css';
@@ -13,6 +14,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
 
+  // state variables
+  const [showAvailableModal, setAvailableModal] = useState(false)
 
   const authorInfo = {
     name : "dan",
@@ -69,6 +72,10 @@ function App() {
       <SideBar contactList={userContactList} onDeleteContact={handleDeleteContact} />
       <Main />
       <Footer />
+
+      <NotAvailableModal 
+        show={showAvailableModal}
+        onHide={() => setAvailableModal(false) } />
     </>
   );
 }

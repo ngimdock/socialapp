@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import { PostDropdown } from './tools/Dropdowns'
 import { ConfirmDeletePostModal } from './tools/customModals'
 
@@ -12,11 +12,6 @@ function Publication({ pubInfo }) {
     const [numberOfLike, setNumberOfLike] = useState(0);
     const [numberOfShare, setNumberOfShare] = useState(0);
 
-    useEffect(()=> {
-        const postLikes = document.querySelectorAll(".postLike")
-        console.log(postLikes)
-
-    }, [numberOfChat, numberOfTweet, numberOfLike,numberOfShare])
 
     // handler
     const handleSetNumberOfChat = () => {
@@ -109,19 +104,19 @@ function PublicationInfo(props) {
     return (
         <ul className="publication-info">
             <li>
-                <i className="bi bi-chat-left postLike" onClick={onNumberOfChatChange}></i> 
+                <i className="bi bi-chat-left" onClick={onNumberOfChatChange}></i> 
                 <span>{numberOfChat}</span> 
             </li>
             <li>
-                <i className="bi bi-bounding-box-circles postLike" onClick={onNumberOfTweetChange}></i>  
+                <i className="bi bi-bounding-box-circles" onClick={onNumberOfTweetChange}></i>  
                 <span>{numberOfTweet}</span>
             </li>
             <li>
-                <i className="bi bi-suit-heart postLike" onClick={onNumberOfLikeChange}></i>  
+                <i className="bi bi-suit-heart" onClick={onNumberOfLikeChange}></i>  
                 <span>{numberOfLike}</span>
             </li>
             <li>
-                <i className="bi bi-reply postLike" onClick={onNumberOfShareChange}></i>  
+                <i className="bi bi-reply" onClick={onNumberOfShareChange}></i>  
                 <span>{numberOfShare}</span>
             </li>
         </ul>
