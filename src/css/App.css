@@ -16,6 +16,7 @@ body{
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(3, auto);
+  position: relative;
 }
 
 .navBar{
@@ -50,6 +51,7 @@ body{
   float: right;
 }
 .navigation ul li{
+  cursor: pointer;
   list-style: none;
   margin: 15px;
   font-weight: 600;
@@ -383,6 +385,13 @@ input[value="publier"]{
   align-items: center;
 }
 
+.postLike{
+  cursor: pointer;
+}
+
+.liked{
+  color: blue;
+}
 
 /*----------------------------------------------------MEDIA QUERY-------------------------------------------*/
 

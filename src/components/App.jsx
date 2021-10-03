@@ -13,11 +13,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
 
-  const [authorInfo, setAuthorInfo] = useState({
+
+  const authorInfo = {
     name : "dan",
     img : "dan.jpg",
     text : "l'auteur du site à posté ce méssagge"
-  });
+  }
 
   const [userContactList, setUserContactsPubList] = useState([
     {
@@ -58,9 +59,6 @@ function App() {
   ]);
 
   const handleDeleteContact = (id) => {
-    console.clear();
-    console.log(id);
-    console.log("je suis entré");
     const newContactList = userContactList.filter(contact => contact.id !== id);
     setUserContactsPubList(newContactList);
   }

@@ -7,7 +7,6 @@ let ConfirmDeletePostModal = (props) => {
 
 	//handler
 	const handleDelete = (id) => {
-		console.log("debut de la suppression")
 		deleteOnePost(id)
 		setShow(false)
 	}
@@ -22,11 +21,7 @@ let ConfirmDeletePostModal = (props) => {
 	      animation={false}
 
 	    >
-		      <Modal.Header >
-		        {/*<Modal.Title id="contained-modal-title-vcenter">
-		          Supprimer le post de <span className="name">{ name }</span>  ?
-		        </Modal.Title>*/}
-		      </Modal.Header>
+
 		      <Modal.Body>
 		        Supprimer le post de <span className="name">{ name }</span> ?
 		      </Modal.Body>
@@ -45,6 +40,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 ConfirmDeletePostModal = connect(null, mapDispatchToProps)(ConfirmDeletePostModal)
+
 
 export {
 	ConfirmDeletePostModal

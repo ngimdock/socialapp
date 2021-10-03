@@ -1,4 +1,3 @@
-import axios from 'axios'
 
 import {
     LOAD_POSTS,
@@ -60,7 +59,7 @@ const apiCallPosts = () => {
             const posts = await response.json()
             const randomNum = Math.floor(Math.random() * 480)
             const somePosts = posts
-                                .slice(randomNum, randomNum+10)
+                                .slice(randomNum, randomNum+6)
                                 .map(({albumId, thumbnailUrl, ...otherProps}) => otherProps)
 
             dispatch(loadPostSuccess(somePosts))  // display post when api success fetch

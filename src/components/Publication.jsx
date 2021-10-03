@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import { PostDropdown } from './tools/Dropdowns'
 import { ConfirmDeletePostModal } from './tools/customModals'
 
@@ -11,6 +11,12 @@ function Publication({ pubInfo }) {
     const [numberOfTweet, setNumberOfTweet] = useState(0);
     const [numberOfLike, setNumberOfLike] = useState(0);
     const [numberOfShare, setNumberOfShare] = useState(0);
+
+    useEffect(()=> {
+        const postLikes = document.querySelectorAll(".postLike")
+        console.log(postLikes)
+
+    }, [numberOfChat, numberOfTweet, numberOfLike,numberOfShare])
 
     // handler
     const handleSetNumberOfChat = () => {
@@ -54,18 +60,15 @@ function Publication({ pubInfo }) {
                     <p>
                         <span className="name">{getName(pubInfo.title)}</span>
                         <span>.</span>
-                        <p className="pseudo">{getPseudo(getName(pubInfo.title))}</p>
+                        <span className="pseudo">{getPseudo(getName(pubInfo.title))}</span>
                     </p>
 
-                    <PostDropdown 
-                    id={pubInfo.id}
-                    setDeleteModalShow={setDeleteModalShow}
-                    />
+                    <PostDropdown setDeleteModalShow={setDeleteModalShow}/>
 
                 </header>
                 <main className="pub-content">
                     <p>
-                        {pubInfo.title.repeat(5)}
+                        {pubInfo.title.repeat(4)}
                     </p>
                     <PublicationInfo
                         numberOfChat={numberOfChat}
@@ -81,6 +84,7 @@ function Publication({ pubInfo }) {
             </section>
 
             <ConfirmDeletePostModal
+            id={pubInfo.id}
             show={deleteModalShow}
             setShow={ setDeleteModalShow }
             onHide={() => setDeleteModalShow(false)}
@@ -105,19 +109,19 @@ function PublicationInfo(props) {
     return (
         <ul className="publication-info">
             <li>
-                <i className="bi bi-chat-left" onClick={onNumberOfChatChange}></i> 
+                <i className="bi bi-chat-left postLike" onClick={onNumberOfChatChange}></i> 
                 <span>{numberOfChat}</span> 
             </li>
             <li>
-                <i className="bi bi-bounding-box-circles" onClick={onNumberOfTweetChange}></i>  
+                <i className="bi bi-bounding-box-circles postLike" onClick={onNumberOfTweetChange}></i>  
                 <span>{numberOfTweet}</span>
             </li>
             <li>
-                <i className="bi bi-suit-heart" onClick={onNumberOfLikeChange}></i>  
+                <i className="bi bi-suit-heart postLike" onClick={onNumberOfLikeChange}></i>  
                 <span>{numberOfLike}</span>
             </li>
             <li>
-                <i className="bi bi-reply" onClick={onNumberOfShareChange}></i>  
+                <i className="bi bi-reply postLike" onClick={onNumberOfShareChange}></i>  
                 <span>{numberOfShare}</span>
             </li>
         </ul>

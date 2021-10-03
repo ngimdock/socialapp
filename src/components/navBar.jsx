@@ -14,9 +14,7 @@ function NavBar({authorInfo}){
 
     useEffect(() => {
         const navItems = document.querySelectorAll(".nav-items")
-
-        const listener = () => {}
-
+        
         navItems.forEach(function(item){
             item.addEventListener("click", function() {
                 navItems.forEach(li => {

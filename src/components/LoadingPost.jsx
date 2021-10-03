@@ -1,6 +1,4 @@
-import { useEffect } from 'react'
 import { Spinner } from 'react-bootstrap'
-import { connect } from 'react-redux'
 
 const LoadingPost = () => {
 
