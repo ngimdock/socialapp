@@ -51,7 +51,7 @@ function App() {
     },
     {
       id: 6,
-      name : "levine",
+      name : "kamga",
       img : "levine.jpg"
     },
     {
