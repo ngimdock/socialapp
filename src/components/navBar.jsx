@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from 'react';
+import { ProfileDropdown } from './tools/Dropdowns'
+
 const ProfilImg = require("../resources/images/dan.jpg").default
 
 function NavBar({authorInfo}){
@@ -41,7 +43,7 @@ function NavBar({authorInfo}){
                 </ul>
                 <div className="author-block">
                     <img src={ProfilImg} alt="zemfack" className="avatar" width="100px" />
-                    <i className="bi bi-caret-down-fill"></i>
+                    <ProfileDropdown />
                 </div>
                 
                 <input type="checkbox" id="check"  defaultChecked={radioButonValue} />

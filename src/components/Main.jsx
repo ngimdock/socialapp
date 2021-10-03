@@ -72,13 +72,11 @@ class Main extends React.Component{
 
     // fetch api when component is mount
     componentDidMount(){
-        console.log(this.props)
         this.props.loadAllPost()
     }
 
     componentDidUpdate(prevProps) {
       if (this.props.postState.isLoadingPost !== prevProps.postState.isLoadingPost) {
-        console.log(this.props.postState)
       }
     }
 

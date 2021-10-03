@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import { PostDropdown } from './tools/Dropdowns'
 
 function Publication({ pubInfo }) {
     
@@ -34,13 +35,6 @@ function Publication({ pubInfo }) {
         return ` @${name}${randomNumber}`; 
     }
 
-    // function formatDate(date) {
-    //     const day = date.getDate();
-    //     const month = date.getMonth();
-    //     const year = date.getFullYear();
-
-    //     return `${day} / ${month+1} / ${year}`
-    // }
 
     return (
         <article className="publication-item">
@@ -59,13 +53,9 @@ function Publication({ pubInfo }) {
                         <span>.</span>
                         <p className="pseudo">{getPseudo(getName(pubInfo.title))}</p>
                     </p>
-                    <p>
-                        <span>
-{/*                            { formatDate(pubInfo.date) }*/}
-                            <i className="bi bi-caret-down-fill"></i>
-                        </span>
-                        
-                    </p>
+
+                    <PostDropdown id={pubInfo.id} />
+
                 </header>
                 <main className="pub-content">
                     <p>
