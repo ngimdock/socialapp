@@ -5,7 +5,7 @@ import { deletePost } from '../../redux/post/postAction'
 const ProfileDropdown = () => {
 
 	return (
-		<DropdownButton id="dropdown-basic-button" title="">
+		<DropdownButton id="profile-dropdown" title="">
 		  <Dropdown.Item href="#/action-1">Profil</Dropdown.Item>
 		  <Dropdown.Item href="#/action-2">Amis</Dropdown.Item>
 		  <Dropdown.Item href="#/action-3">Archives</Dropdown.Item>
@@ -15,11 +15,11 @@ const ProfileDropdown = () => {
 	)
 }
 
-let PostDropdown = ({ id, deleteOnePost }) => {
+let PostDropdown = ({ id, deleteOnePost, setDeleteModalShow}) => {
 
 	return (
-		<DropdownButton id="dropdown-basic-button" title="">
-		  <Dropdown.Item href="#/action-1" onClick={ () => deleteOnePost(id) }>Supprimer</Dropdown.Item>
+		<DropdownButton id="post-dropdown" title="">
+		  <Dropdown.Item href="#/action-1" onClick={ () => setDeleteModalShow(true) }>Supprimer</Dropdown.Item>
 		  <Dropdown.Item href="#/action-2">Archiver</Dropdown.Item>
 		</DropdownButton>
 	)

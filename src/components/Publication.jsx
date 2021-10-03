@@ -1,9 +1,12 @@
 import {useState} from 'react';
 import { PostDropdown } from './tools/Dropdowns'
+import { ConfirmDeletePostModal } from './tools/customModals'
 
 function Publication({ pubInfo }) {
     
     // state variable
+    const [deleteModalShow, setDeleteModalShow] = useState(false)
+
     const [numberOfChat, setNumberOfChat] = useState(0);
     const [numberOfTweet, setNumberOfTweet] = useState(0);
     const [numberOfLike, setNumberOfLike] = useState(0);
@@ -37,7 +40,7 @@ function Publication({ pubInfo }) {
 
 
     return (
-        <article className="publication-item">
+        <article className="publication-item" id="pub">
             <aside>
                 <img 
                     src={pubInfo.url} 
@@ -54,7 +57,10 @@ function Publication({ pubInfo }) {
                         <p className="pseudo">{getPseudo(getName(pubInfo.title))}</p>
                     </p>
 
-                    <PostDropdown id={pubInfo.id} />
+                    <PostDropdown 
+                    id={pubInfo.id}
+                    setDeleteModalShow={setDeleteModalShow}
+                    />
 
                 </header>
                 <main className="pub-content">
@@ -73,6 +79,13 @@ function Publication({ pubInfo }) {
                     />
                 </main>
             </section>
+
+            <ConfirmDeletePostModal
+            show={deleteModalShow}
+            setShow={ setDeleteModalShow }
+            onHide={() => setDeleteModalShow(false)}
+            name={getName(pubInfo.title)}
+            />
         </article>
     );
 }

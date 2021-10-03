@@ -362,6 +362,11 @@ input[value="publier"]{
   font-size: 20px;
 }
 
+#post-dropdown, #profile-dropdown{
+  background: #80ddd9;
+  border: 1px solid #80ddd9;
+}
+
 
 /*-------------------------footer---------------------------*/
 
